@@ -1,14 +1,6 @@
 import { z } from "zod";
 
-export const baseRequestSchema = z.object({
-  urlRm: z.string().min(1, "Informe a URL do servidor RM."),
-  basicAuth: z
-    .string()
-    .regex(
-      /^[^:]+:.+$/,
-      "Informe as credenciais no formato usuario:senha."
-    ),
-});
+export const baseRequestSchema = z.object({});
 
 export type BaseRequest = z.infer<typeof baseRequestSchema>;
 

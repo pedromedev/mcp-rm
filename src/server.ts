@@ -40,8 +40,8 @@ server.tool(
   "buscar_cursos",
   "Busca cursos no TOTVS RM (EduCursoData).",
   cursoGetArgs,
-  async (input) => {
-    const resultado = await buscarCursos(input);
+  async () => {
+    const resultado = await buscarCursos();
     return buildTextResponse(resultado);
   }
 );
@@ -51,7 +51,7 @@ server.tool(
   "Cria um curso no TOTVS RM (EduCursoData).",
   cursoPostArgs,
   async (input) => {
-    const resultado = await criarCurso(input);
+    const resultado = await criarCurso(input.payload);
     return buildTextResponse(resultado);
   }
 );
@@ -60,8 +60,8 @@ server.tool(
   "buscar_habilitacoes",
   "Lista habilitações no TOTVS RM (EduHabilitacaoData).",
   habilitacaoGetArgs,
-  async (input) => {
-    const resultado = await buscarHabilitacoes(input);
+  async () => {
+    const resultado = await buscarHabilitacoes();
     return buildTextResponse(resultado);
   }
 );
@@ -71,7 +71,7 @@ server.tool(
   "Cria uma habilitação no TOTVS RM (EduHabilitacaoData).",
   habilitacaoPostArgs,
   async (input) => {
-    const resultado = await criarHabilitacao(input);
+    const resultado = await criarHabilitacao(input.payload);
     return buildTextResponse(resultado);
   }
 );
@@ -80,8 +80,8 @@ server.tool(
   "buscar_disciplinas",
   "Lista disciplinas no TOTVS RM (EduDisciplinaData).",
   disciplinaGetArgs,
-  async (input) => {
-    const resultado = await buscarDisciplinas(input);
+  async () => {
+    const resultado = await buscarDisciplinas();
     return buildTextResponse(resultado);
   }
 );
@@ -91,7 +91,7 @@ server.tool(
   "Cria uma disciplina no TOTVS RM (EduDisciplinaData).",
   disciplinaPostArgs,
   async (input) => {
-    const resultado = await criarDisciplina(input);
+    const resultado = await criarDisciplina(input.payload);
     return buildTextResponse(resultado);
   }
 );
@@ -100,8 +100,8 @@ server.tool(
   "buscar_grades",
   "Lista grades no TOTVS RM (EduGradeData).",
   gradeGetArgs,
-  async (input) => {
-    const resultado = await buscarGrades(input);
+  async () => {
+    const resultado = await buscarGrades();
     return buildTextResponse(resultado);
   }
 );
@@ -111,7 +111,7 @@ server.tool(
   "Cria uma grade no TOTVS RM (EduGradeData).",
   gradePostArgs,
   async (input) => {
-    const resultado = await criarGrade(input);
+    const resultado = await criarGrade(input.payload);
     return buildTextResponse(resultado);
   }
 );

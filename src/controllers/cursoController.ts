@@ -1,32 +1,29 @@
-import {
-  CursoGetInput,
-  CursoPostInput,
-} from "../models/curso.js";
+import { CursoPostInput } from "../models/curso.js";
 import { callTotvsEndpoint } from "../services/httpService.js";
+import { getRmConfig } from "../utils/env.js";
 
 const RESOURCE_PATH = "/RMSRestDataServer/rest/EduCursoData";
 
-export const buscarCursos = async ({
-  urlRm,
-  basicAuth,
-}: CursoGetInput): Promise<string> =>
-  callTotvsEndpoint({
+export const buscarCursos = async (): Promise<string> => {
+  const { urlRm, basicAuth } = getRmConfig();
+  return callTotvsEndpoint({
     baseUrl: urlRm,
     resource: RESOURCE_PATH,
     basicAuth,
     method: "GET",
   });
+};
 
-export const criarCurso = async ({
-  urlRm,
-  basicAuth,
-  payload,
-}: CursoPostInput): Promise<string> =>
-  callTotvsEndpoint({
+export const criarCurso = async (
+  payload: CursoPostInput["payload"]
+): Promise<string> => {
+  const { urlRm, basicAuth } = getRmConfig();
+  return callTotvsEndpoint({
     baseUrl: urlRm,
     resource: RESOURCE_PATH,
     basicAuth,
     method: "POST",
     body: payload,
   });
+};
 
